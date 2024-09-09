@@ -8,6 +8,7 @@
 7. Mengonfigurasi view dan url
 8. Membuat template
 ### Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
+![image](https://github.com/user-attachments/assets/8a0853b0-0018-4088-be57-54d16b5a9a10)
 Pengguna dengan web browser akan meminta sebuah request melalui urls.py, kemudian urls.py akan memenuhi permintaan pengguna, apakah pengguna hanya meminta views atau juga dengan model, jika pengguna juga meminta model, maka models.py akan mengambilkan data yang berada di database. Kemudian data tersebut ditampilkan pada oleh views.py ke dalam berkas html.
 
 ### Jelaskan fungsi git dalam pengembangan perangkat lunak!
