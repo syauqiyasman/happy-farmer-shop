@@ -6,10 +6,12 @@
 </head>
 <body>
     <h1>Happy Farmer Shop</h1>
-    <img src="{{ image }}" alt="{{ name }}" height="150">
-    <p>{{ name }}</p>
-    <p>Harga: {{ price }}/pcs</p>
-    <p>Deskripsi: {{ description }}</p>
-    <p>Stok: {{ quantity }} ton</p>
+    {% for product in products %}
+        <img src="{{ product.image }}" alt="{{ product.name }}" height="150">
+        <p>{{ product.name }}</p>
+        <p>Harga: {{ product.price }}/pcs</p>
+        <p>Deskripsi: {{ product.description }}</p>
+        <p>Stok: {{ product.quantity }} ton</p>
+    {% endfor %}
 </body>
 </html>
