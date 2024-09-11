@@ -1,3 +1,7 @@
+Syauqi Muhammad Yasman\
+2306275752\
+PBP D
+
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 1. Membuat repository di github kemudian clone repository tersebut
 2. Mengaktifkan virtual environment
