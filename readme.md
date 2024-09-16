@@ -2,6 +2,7 @@ Syauqi Muhammad Yasman\
 2306275752\
 PBP D
 
+## Tugas 2
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 1. Membuat repository di github kemudian clone repository tersebut
 2. Mengaktifkan virtual environment
@@ -23,3 +24,12 @@ Karena Django menggunakan bahasa pemrograman Python sebagaimana yang kita pelaja
 
 ### Mengapa model pada Django disebut sebagai ORM?
 Django disebut sebagai ORM karena memungkinkan developer untuk memetakan objek Python ke dalam tabel-tabel di database relasional, sehingga interaksi dengan database dapat dilakukan tanpa menulis query SQL secara langsung.
+
+## Tugas 3
+1. Membuat base.html
+2. Menambahkan base.html template ke settings
+3. Membuat main.html melakukan extend terhadap base.html
+4. Menambahkan uuid ke model sebagai key
+5. Menjalankan migrasi baru
+6. Membuat form input
+7. Menampilkan data di main
