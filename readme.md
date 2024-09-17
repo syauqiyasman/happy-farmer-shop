@@ -13,7 +13,7 @@ PBP D
 7. Mengonfigurasi view dan url
 8. Membuat template
 ### Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
-![image](https://github.com/user-attachments/assets/8a0853b0-0018-4088-be57-54d16b5a9a10)
+![Bagan request klien Django](https://github.com/user-attachments/assets/8a0853b0-0018-4088-be57-54d16b5a9a10)
 Pengguna dengan web browser akan meminta sebuah request melalui urls.py, kemudian urls.py akan memenuhi permintaan pengguna, apakah pengguna hanya meminta views atau juga dengan model, jika pengguna juga meminta model, maka models.py akan mengambilkan data yang berada di database. Kemudian data tersebut ditampilkan pada oleh views.py ke dalam berkas html.
 
 ### Jelaskan fungsi git dalam pengembangan perangkat lunak!
@@ -58,6 +58,10 @@ Dengan token CRSF, penyerang tidak bisa menebak token tersebut, sehingga request
 
 ### Postman
 #### XML
+![Postman XML](https://github.com/user-attachments/assets/6c8404a7-5a15-4f2f-b12f-fa151e226784)
 #### XML/id
+![Postman XML with id](https://github.com/user-attachments/assets/c84eb116-dee2-48b2-8a16-448c8f3236dc)
 #### JSON
+![Postman JSON](https://github.com/user-attachments/assets/dc0c4212-e619-478c-b6c4-4249e647195f)
 #### JSON/id
+![Postman JSON with id](https://github.com/user-attachments/assets/b68875e1-e52f-4767-993c-1dc63ffef844)
