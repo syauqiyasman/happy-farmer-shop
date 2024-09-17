@@ -26,6 +26,27 @@ Karena Django menggunakan bahasa pemrograman Python sebagaimana yang kita pelaja
 Django disebut sebagai ORM karena memungkinkan developer untuk memetakan objek Python ke dalam tabel-tabel di database relasional, sehingga interaksi dengan database dapat dilakukan tanpa menulis query SQL secara langsung.
 
 ## Tugas 3
+
+### Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+Data delivery dibutuhkan untuk pengiriman sebuah data baik dari klien ke server maupun server ke klien. Dengan implementasi data delivery pada sebuah web platform, kita dapat membuat interaksi dua arah dari klien ke server dan sebaliknya. Contohnya adalah klien menambahkan sebuah produk ke server dan server menampilkan produk-produk yang tersedia ke klien.
+### Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+Keduanya memiliki kelebihan dan kekurangannya masing-masing, JSON memiliki keterbatasan tipe data dibandingkan dengan XML, XML mendukung tipe data binary dan timestamp sementara JSON tidak. Namun, JSON memiliki strukturnya yang lebih mudah dipahami dan memiliki waktu parsing lebih cepat daripada XML. Dari keterbatasan tipe data yang didukung oleh JSON, dan mungkin jarang digunakan, dibandingkan dengan struktur yang simpel dan kecepatannya, menjadikan JSON lebih mudah digunakan dalam pengembangan ketimbang XML, sehingga membuatnya dapat lebih populer.
+### Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
+Fungsi method tersebut adalah untuk memverifikasi apakah input yang diisi oleh pengguna sesuai dengan apa yang telah kita rancang pada model. Hal tersebut dilakukan untuk mencegah terjadinya error karena perbedaan tipe data.
+### Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+CRSF Token merupakan token random yang sulit ditebak dan digunakan untuk memverifikasi apakah sebuah tindakan yang dilakukan berasal benar-benar dari pengguna. Tanpa adanya CRSF Token, penyerang dapat membuat request tanpa persetujuan pengguna ke sebuah website yang memiliki kerentanan CRSF. Hal tersebut dapat dilakukan penyerang melalui website berbahaya yang berusaha mengirimkan request ke suatu website yang sedang menjalankan session kita.
+
+Tanpa token:
+```
+http://www.mybank.com/transfer?to=123456&amount=10000
+```
+Dengan token:
+```
+http://www.mybank.com/transfer?to=123456&amount=10000&token=31415926535897932384626433832795028841971
+```
+Dengan token CRSF, penyerang tidak bisa menebak token tersebut, sehingga request yang dikirimkan penyerang ditolak.
+
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial). 
 1. Membuat base.html
 2. Menambahkan base.html template ke settings
 3. Membuat main.html melakukan extend terhadap base.html
@@ -33,3 +54,10 @@ Django disebut sebagai ORM karena memungkinkan developer untuk memetakan objek P
 5. Menjalankan migrasi baru
 6. Membuat form input
 7. Menampilkan data di main
+8. Membuat pengembalian data xml dan json
+
+### Postman
+#### XML
+#### XML/id
+#### JSON
+#### JSON/id
