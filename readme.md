@@ -2,7 +2,7 @@ Syauqi Muhammad Yasman\
 2306275752\
 PBP D
 
-## Tugas 2
+# Tugas 2
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 1. Membuat repository di github kemudian clone repository tersebut
 2. Mengaktifkan virtual environment
@@ -25,7 +25,7 @@ Karena Django menggunakan bahasa pemrograman Python sebagaimana yang kita pelaja
 ### Mengapa model pada Django disebut sebagai ORM?
 Django disebut sebagai ORM karena memungkinkan developer untuk memetakan objek Python ke dalam tabel-tabel di database relasional, sehingga interaksi dengan database dapat dilakukan tanpa menulis query SQL secara langsung.
 
-## Tugas 3
+# Tugas 3
 
 ### Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
 Data delivery dibutuhkan untuk pengiriman sebuah data baik dari klien ke server maupun server ke klien. Dengan implementasi data delivery pada sebuah web platform, kita dapat membuat interaksi dua arah dari klien ke server dan sebaliknya. Contohnya adalah klien menambahkan sebuah produk ke server dan server menampilkan produk-produk yang tersedia ke klien.
@@ -65,3 +65,40 @@ Dengan token CRSF, penyerang tidak bisa menebak token tersebut, sehingga request
 ![Postman JSON](https://github.com/user-attachments/assets/dc0c4212-e619-478c-b6c4-4249e647195f)
 #### JSON/id
 ![Postman JSON with id](https://github.com/user-attachments/assets/b68875e1-e52f-4767-993c-1dc63ffef844)
+
+# Tugas 4
+### Apa perbedaan antara HttpResponseRedirect() dan redirect()
+Dalam kasus HttpResponseRedirect() argumen pertama hanya dapat berupa url. Sementara redirect() yang pada akhirnya akan mengembalikan HttpResponseRedirect() dapat menerima model, tampilan, atau url sebagai argumen. Jadi redirect() sedikit lebih fleksibel ketimbang HttpResponseRedirect().
+### Jelaskan cara kerja penghubungan model Product dengan User!
+Model dengan Product dihubungkan dengan many-to-one relationships, di mana pada Product, terdapat sebuah key yang merujuk ke User sebagai pemilik. Misalkan kita memiliki 100 Product, dan terdapat 50 Product memiliki key 1, maka 50 Product tersebut terhubung ke User dengan id 1, sementara 50 Product lainnya memiliki key 2, maka sisa Product tersebut terhubung ke User dengan id 2.
+
+### Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
+| Authentication                                                                                               | Authorization                                                                                              |
+|--------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| Proses memverifikasi identitas pengguna sebelum memberi mereka izin untuk mengakses sistem, akun, atau file. | Proses memverifikasi tingkat akses pengguna ke sistem, akun, atau file.                                    |
+| Tujuan utamanya adalah untuk memverifikasi identitas pengguna.                                               | Tujuan utamanya adalah memastikan bahwa hanya pengguna yang berwenang yang dapat melakukan akses tertentu. |
+| Contoh mekanismenya adalah nama pengguna dan kata sandi atau OTP (one time pin).                             | Contoh mekanismenya adalah Role-Based Access Control (RBAC).                                               |
+Pada saat pengguna melakukan login, proses aunthentication dilakukan, fungsinya untuk memverifikasi identitas pengguna sebelum memberi izin untuk mengakses sistem (website).
+
+Authentication pada Django diimplementasi menggunakan dekorator @login_required() yang menandakan bahwa halaman tersebut membutuhkan authentication sebelum halaman tersebut dapat diakses. Ketika pengakses telah mendapatkan session yang valid, barulah halaman tersebut dapat diakses. Sementara untuk authorization dapat dilakukan dengan menambahkan field role pada model user, role tersebut yang kemudian akan dicek sebelum menampilkan apa saja atau halaman apa yang dapat diakses oleh role tersebut.
+### Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
+Django mengingat pengguna yang telah login dengan menggunakan session yang diidentifikasi melalui cookie session ID. Cookie tersebut dikirim ke browser dan digunakan untuk mencocokkan pengguna dengan session yang disimpan di server.
+
+Cookies dapat digunakan untuk berbagai keperluan seperti menyimpan preferensi pengguna, pelacakan aktivitas, shopping cart, dan token keamanan.
+
+Tidak semua cookies aman, dan ada beberapa flag penting yang harus digunakan (seperti Secure, HttpOnly, dan SameSite) untuk memastikan bahwa cookies tidak dapat disalahgunakan oleh pihak ketiga atau dalam serangan keamanan seperti XSS atau CSRF.
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+1. Membuat fungsi untuk melakukan registrasi
+2. Membuat template register form
+3. Menambah register ke urls
+4. Membuat fungsi untuk melakukan login 
+5. Membuat template login form 
+6. Menambah login ke urls
+7. Membuat fungsi untuk melakukan logout
+8. Menambahkan tombol logout di main
+9. Menambahkan logout ke urls
+10. Menambahkan Restriksi ke halaman create product
+11. Menggunakan cookie ketika login dan logout
+12. Menghubungkan user dengan model
+13. Membuat migrasi baru
+14. Membuat setingan untuk environtment production
