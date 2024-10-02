@@ -6,7 +6,8 @@
 
 {% block content %}
 <div class="login">
-  <h1>Login</h1>
+  <h1 class="happyfarmershop-text">Happy Farmer Shop</h1>
+    <h3>Login</h3>
 
   <form method="POST" action="">
     {% csrf_token %}
@@ -27,6 +28,11 @@
   </ul>
   {% endif %} Don't have an account yet?
   <a href="{% url 'main:register' %}">Register Now</a>
+
+    <p class="login-warning">Waspada terhadap pencurian password!</p>
+    <p class="login-warning-tips">Pastikan alamat yang anda tuju adalah
+        <a class="login-warning-tips-url" href="https://academic.ui.ac.id">https://academic.ui.ac.id</a>
+    </p>
 </div>
 
 {% endblock content %}

@@ -1,0 +1,14 @@
+<nav>
+    <h1 class="happyfarmershop-text">Happy Farmer Shop</h1>
+    <div class="navbar-container">
+            <a class="navbar-item" href="{% url 'main:show_main' %}">
+                Home
+            </a>
+            <a class="navbar-item" href="{% url 'main:create_product' %}">
+                Create Product
+            </a>
+            <a class="navbar-item navbar-logout" href="{% url 'main:logout' %}">
+                Logout
+            </a>
+        </div>
+</nav>

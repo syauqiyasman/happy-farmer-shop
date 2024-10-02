@@ -1,0 +1,126 @@
+:root {
+    background-image: url("../image/background.jpg");
+    font-family: "Arial";
+}
+
+button, input[type=submit] {
+    color: white;
+    font-family: "Arial Narrow";
+    padding: 5px 10px;
+    border-radius: .5rem;
+    font-weight: bold;
+    background-image: linear-gradient(#61a2b1, #2A5058);
+    filter: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+button:hover, input[type=submit]:hover {
+    background-image: linear-gradient(#2A5058, #61a2b1);
+}
+
+.navbar-container {
+    display: flex;
+    place-items: center;
+    flex-direction: row;
+}
+
+.navbar-item {
+    background-image: linear-gradient(#61a2b1, #2A5058);
+    padding: 5px 10px;
+    color: white;
+    font-weight: bold;
+    font-family: "Arial Narrow";
+    filter: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    border-style: solid;
+    text-decoration: none;
+    border-color: #000;
+}
+
+.navbar-item:first-child {
+    border-radius: .5rem 0 0 .5rem;
+    border-right: 0;
+}
+
+.navbar-item:last-child {
+    border-radius: 0 .5rem .5rem 0;
+    border-left: 0;
+}
+
+.navbar-item:hover {
+    background-image: linear-gradient(#2A5058, #61a2b1);
+}
+
+.navbar-logout {
+    display: flex;
+    place-content: end;
+}
+
+.happyfarmershop-text {
+    font-size: 32px;
+    font-family: "Arial Black";
+    background-color: rgba(0,0,0,0.7);
+    color: transparent;
+    text-shadow: 0 1px 1px firebrick;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+}
+
+.login-warning {
+    color: #990000;
+    font-weight: bold;
+}
+
+.login-warning-tips {
+    color: olivedrab;
+    font-weight: bold;
+}
+
+.login-warning-tips-url {
+    color: #B8860B;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.product-container {
+    display: grid;
+    grid-gap: 20px;
+    max-width: 100%;
+}
+
+.product-information {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.product-action {
+    display: flex;
+    gap: 5px;
+}
+
+@media (min-width: 640px) {
+    .product-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.product-not-found-container {
+    display: flex;
+    justify-content: center;
+}
+
+.product-not-found-message > p {
+    font-weight: bold;
+    text-align: center;
+}
+
+.product-not-found-message {
+    display: flex;
+    flex-direction: column;
+}

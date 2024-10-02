@@ -102,3 +102,112 @@ Tidak semua cookies aman, dan ada beberapa flag penting yang harus digunakan (se
 12. Menghubungkan user dengan model
 13. Membuat migrasi baru
 14. Membuat setingan untuk environtment production
+
+
+### Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+1. Inline Styles
+```html
+<div style="color: red;">Text</div>
+```
+2. ID Selector
+```css
+#myElement {
+    color: blue;
+}
+```
+3. Class, Attribute, dan Pseudo-classes Selector
+```css
+.myClass {
+    color: green;
+}
+
+input[type=submit] {
+    color: white;
+}
+
+button:hover {
+    color: red;
+}
+```
+4. Type Selector (Element Selector)
+```css
+div {
+    color: yellow;
+}
+```
+5. Universal Selector
+```css
+* {
+    color: black;
+}
+```
+### Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+Karena aplikasi web tidak hanya dibuka melalui satu tipe perangkat, aplikasi web dibuka melalui smartphone, laptop, desktop, dan lain-lain. Sehingga untuk mengakomodasi semua itu, diciptakanlah responsive website yang dapat menyesuaikan bentuknya terhadap jenis perangkat dan besar layar yang digunakan.
+
+Contoh aplikasi yang sudah menerapkan responsive design:
+1. Happy Farmer Shop
+2. PBP Fasilkom UI
+3. Google
+
+Contoh aplikasi yang belum menerapkan responsice design:
+1. SIAK NG
+2. Open JDK
+3. Google Docs
+### Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+- Margin: Ruang di luar elemen (memisahkan dari elemen lain).
+```css
+.element {
+    margin: 20px;
+}
+```
+- Border: Garis di sekitar elemen (membatasi elemen).
+```css
+.element {
+    border: 2px solid black;
+}
+```
+- Padding: Ruang di dalam elemen (antara konten dan border).
+```css
+.element {
+    padding: 10px;
+}
+```
+Implementasi gabungan:
+```css
+button {
+    border: 2px solid black;
+    margin-left: 10px;
+    padding: 3px;
+}
+```
+### Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+
+Tentu! Flexbox dan Grid Layout adalah dua model layout di CSS yang membantu dalam menyusun elemen di halaman web. Masing-masing memiliki karakteristik dan kegunaan tersendiri.
+
+1. Flexbox (Flexible Box Layout)
+
+Konsep:
+
+Flexbox adalah model layout satu dimensi yang memungkinkan pengaturan elemen dalam baris atau kolom. Dengan flexbox, elemen dapat dengan mudah diatur agar responsif dan fleksibel, menyesuaikan ruang yang tersedia.
+
+Kegunaan:
+
+- Penataan Elemen: Cocok untuk mengatur elemen dalam satu dimensi, seperti menu navigasi atau tombol.
+- Penataan Responsif: Elemen dapat tumbuh atau menyusut sesuai dengan ukuran kontainer.
+- Alignment: Mempermudah pengaturan alignment dan distribusi ruang antar elemen.
+
+2. Grid Layout
+
+Konsep:
+Grid Layout adalah model layout dua dimensi yang memungkinkan pengaturan elemen dalam baris dan kolom. Ini memberi kontrol lebih besar atas tata letak elemen di halaman.
+
+Kegunaan:
+- Penataan Kompleks: Cocok untuk desain yang lebih kompleks, seperti grid gambar, tata letak halaman, atau dashboard.
+- Pengaturan Kolom dan Baris: Memungkinkan pembuatan kolom dan baris yang dapat disesuaikan dengan ukuran kontainer.
+- Spasi dan Area: Dapat mendefinisikan area grid untuk menempatkan elemen secara spesifik.
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+1. Menambah middleware WhiteNoise
+2. Menambah static url di settings
+3. Membuat directory static dan global.css
+4. Menambah link css di base.html
+5. Mengimplementasikan Edit dan Delete

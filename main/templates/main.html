@@ -1,25 +1,43 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<h1>Happy Farmer Shop</h1>
+{% include 'navbar.html' %}
 <p>{{ name }} {{ npm }} {{ class }}</p>
-<a href="{% url 'main:logout' %}">
-  <button>Logout</button>
-</a>
 <h5>Sesi terakhir login: {{ last_login }}</h5>
-<a href="{% url 'main:create_product' %}">
-    <button>Add New Product</button>
-</a>
-<br/>
-<br/>
+
     {% if not products %}
-        <p>Belum ada produk.</p>
+        <div class="product-not-found-container">
+            <div class="product-not-found-message">
+                <div>
+                    <img src="{% static '/image/no-product.png' %}">
+                </div>
+                <p>Belum ada produk.</p>
+            </div>
+        </div>
     {% else %}
+        <div class="product-container">
         {% for product in products %}
-        <img src="{{ product.image }}" alt="{{ product.name }}" height="150">
-        <p>{{ product.name }}</p>
-        <p>Harga: {{ product.price }}/pcs</p>
-        <p>Deskripsi: {{ product.description }}</p>
-        <p>Stok: {{ product.quantity }} ton</p>
+        <div class="product-information">
+            <div>
+                <img src="{{ product.image }}" alt="{{ product.name }}" height="150">
+            </div>
+            <div>{{ product.name }}</div>
+            <div>Harga: {{ product.price }}/pcs</div>
+            <div>Deskripsi: {{ product.description }}</div>
+            <div>Stok: {{ product.quantity }} ton</div>
+            <div class="product-action">
+                 <a href="{% url 'main:edit_product' product.pk %}">
+                    <button>
+                        Edit
+                    </button>
+                </a>
+                <a href="{% url 'main:delete_product' product.pk %}">
+                    <button>
+                        Delete
+                    </button>
+                </a>
+            </div>
+        </div>
         {% endfor %}
     {% endif %}
 {% endblock content %}
