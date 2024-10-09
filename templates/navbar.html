@@ -7,8 +7,94 @@
             <a class="navbar-item" href="{% url 'main:create_product' %}">
                 Create Product
             </a>
+            <a class="navbar-item" id="createProductModalButton">
+                Create Product Ajax
+            </a>
             <a class="navbar-item navbar-logout" href="{% url 'main:logout' %}">
                 Logout
             </a>
         </div>
+    
+    <div id="createProductModal" class="create-product-modal">
+        <div class="modal-body">
+            <span class="close-modal">&times;</span>
+            <h3>Tambah Produk Baru</h3>
+            <form id="createProductForm">
+              <table>
+                <tbody><tr>
+                <th><label for="id_name">Name:</label></th>
+                <td>
+                  <input type="text" name="name" maxlength="255" required="" id="id_name">
+                </td>
+              </tr>
+              <tr>
+                <th><label for="id_price">Price:</label></th>
+                <td>
+                  <input type="number" name="price" required="" id="id_price">
+                </td>
+              </tr>
+              <tr>
+                <th><label for="id_description">Description:</label></th>
+                <td>
+                  <textarea name="description" cols="40" rows="10" required="" id="id_description"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <th><label for="id_quantity">Quantity:</label></th>
+                <td>
+                  <input type="number" name="quantity" required="" id="id_quantity">
+                </td>
+              </tr>
+              <tr>
+                <th><label for="id_image">Image:</label></th>
+                <td>
+                  <textarea name="image" cols="40" rows="10" id="id_image"></textarea>
+                </td>
+              </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    <input type="submit" value="Add New Product">
+                  </td>
+                </tr>
+              </tbody></table>
+            </form>
+        </div>
+    </div>
 </nav>
+<script>
+const createProductModal = document.getElementById("createProductModal");
+const createProductModalButton = document.getElementById("createProductModalButton");
+const span = document.getElementsByClassName("close-modal")[0];
+
+createProductModalButton.onclick = function() {
+  createProductModal.style.display = "block";
+}
+
+span.onclick = function() {
+  createProductModal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target === createProductModal) {
+    createProductModal.style.display = "none";
+  }
+}
+
+function createProduct() {
+    fetch("{% url 'main:create_ajax' %}", {
+      method: "POST",
+      body: new FormData(document.getElementById("createProductForm")),
+    })
+    .then(response => window.location.pathname === "/" ? refreshProducts() : void(0))
+
+    document.getElementById("createProductForm").reset(); 
+    createProductModal.style.display = "none";
+
+    return false;
+  }
+document.getElementById("createProductForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    createProduct();
+  })
+</script>

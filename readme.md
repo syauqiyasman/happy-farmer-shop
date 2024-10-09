@@ -211,3 +211,24 @@ Kegunaan:
 3. Membuat directory static dan global.css
 4. Menambah link css di base.html
 5. Mengimplementasikan Edit dan Delete
+
+### Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
+JavaScript memungkinkan untuk menambahkan interaktivitas ke halaman web. Pengguna dapat berinteraksi dengan elemen-elemen seperti tombol, form, menu, atau konten yang berubah dinamis, tanpa perlu memuat ulang halaman.
+
+JavaScript mendukung Asynchronous programming, terutama dengan AJAX dan fetch(), memungkinkan aplikasi untuk mengambil atau mengirim data ke server tanpa perlu memuat ulang halaman.
+
+JavaScript bekerja di hampir semua browser modern tanpa perlu konfigurasi tambahan. Ini membuatnya sangat kompatibel dan mempermudah pengembangan aplikasi yang dapat berjalan di berbagai platform, termasuk desktop, tablet, dan perangkat seluler.
+### Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
+fetch merupakan fungsi asynchronous dan mengembalikan promise, yang artinya operasi pengambilan data dari server terjadi di latar belakang tanpa menghentikan eksekusi kode lain. Penggunaan await akan membuat javascript menunda eksekusi kode hingga promise yang dikembalikan oleh fetch terselesaikan. Oleh karena itu, jika tidak menggunakan await, kita hanya akan mendapatkan promise, karena data yang ambil oleh fetch belum selesai. 
+### Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
+Decorator csrf_exempt diperlukan ketika kita ingin menghindari pengecekan CSRF pada view yang akan dipanggil oleh AJAX POST request. Namun, penggunaannya perlu hati-hati, dan sebisa mungkin, sebaiknya tetap menerapkan CSRF protection dengan menyertakan CSRF token dalam setiap AJAX POST.
+### Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?
+Bagian frontend merupakan bagian yang dilihat oleh client. Pada aplikasi web, client memiliki akses untuk memodifikasi bagian frontend itu sendiri, misalnya lewat developer tools. Hal ini bisa saja dimanfaatkan seseorang untuk menonaktifkan pembersihan input yang terdapat pada frontend. Jika tidak ada pembersihan ulang di backend, maka input yang diinputkan oleh seseorang yang menonaktifkan pembersihan input pada frontend akan masuk sebagai input yang valid. Berbeda halnya jika terdapat pembersihan input kembali di backend. Karena backend berjalan di server, maka client tidak memiliki akses untuk menonaktifkan pembersihan input tersebut. Sehingga, input yang masuk dapat diverifikasi kembali jika memang input tersebut berbahaya.
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+1. Menambahkan pesan error pada login
+2. Membuat fungsi baru pada views.py yang menangani form submit dari ajax
+3. Menambahkan fungsi baru tersebut ke urls.py
+4. Menambahkan filter pada show_xml dan show_json
+5. Membuat tampilan product diambil menggunakan ajax
+6. Membuat modal form untuk menambah data menggunakan ajax
+7. Melakukan pembersihan input backend dan frontend

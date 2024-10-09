@@ -1,43 +1,74 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block meta %}
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"></script>
+{% endblock meta %}
 {% block content %}
 {% include 'navbar.html' %}
 <p>{{ name }} {{ npm }} {{ class }}</p>
 <h5>Sesi terakhir login: {{ last_login }}</h5>
 
-    {% if not products %}
-        <div class="product-not-found-container">
-            <div class="product-not-found-message">
-                <div>
-                    <img src="{% static '/image/no-product.png' %}">
+    <div id="product-container"></div>
+
+    <script>
+      async function getProducts(){
+          return fetch("{% url 'main:show_json' %}").then((res) => res.json())
+      }
+
+      async function refreshProducts() {
+    document.getElementById("product-container").innerHTML = "";
+    const products = await getProducts();
+    let htmlString = "";
+    let classNameString = "";
+
+    if (products.length === 0) {
+        htmlString = `
+            <div class="product-not-found-container">
+                <div class="product-not-found-message">
+                    <div>
+                        <img src="{% static '/image/no-product.png' %}">
+                    </div>
+                    <p>Belum ada produk.</p>
                 </div>
-                <p>Belum ada produk.</p>
             </div>
-        </div>
-    {% else %}
-        <div class="product-container">
-        {% for product in products %}
-        <div class="product-information">
-            <div>
-                <img src="{{ product.image }}" alt="{{ product.name }}" height="150">
-            </div>
-            <div>{{ product.name }}</div>
-            <div>Harga: {{ product.price }}/pcs</div>
-            <div>Deskripsi: {{ product.description }}</div>
-            <div>Stok: {{ product.quantity }} ton</div>
-            <div class="product-action">
-                 <a href="{% url 'main:edit_product' product.pk %}">
-                    <button>
-                        Edit
-                    </button>
-                </a>
-                <a href="{% url 'main:delete_product' product.pk %}">
-                    <button>
-                        Delete
-                    </button>
-                </a>
-            </div>
-        </div>
-        {% endfor %}
-    {% endif %}
+        `;
+    }
+    else {
+        classNameString = "product-container"
+        products.forEach((product) => {
+            const image = DOMPurify.sanitize(product.fields.image)
+            const name = DOMPurify.sanitize(product.fields.name)
+            const price = DOMPurify.sanitize(product.fields.price)
+            const description = DOMPurify.sanitize(product.fields.description)
+            const quantity = DOMPurify.sanitize(product.fields.quantity)
+            htmlString += `
+                <div class="product-information">
+                    <div>
+                        <img src="${image}" alt="${name}" height="150">
+                    </div>
+                    <div>${name}</div>
+                    <div>Harga: ${price}/pcs</div>
+                    <div>Deskripsi: ${description}</div>
+                    <div>Stok: ${quantity} ton</div>
+                    <div class="product-action">
+                         <a href="/edit-product/${product.pk}">
+                            <button>
+                                Edit
+                            </button>
+                        </a>
+                        <a href="/delete/${product.pk}">
+                            <button>
+                                Delete
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            `;
+        });
+    }
+    document.getElementById("product-container").className = classNameString;
+    document.getElementById("product-container").innerHTML = htmlString;
+}
+refreshProducts();
+    </script>
 {% endblock content %}
