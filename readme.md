@@ -103,6 +103,7 @@ Tidak semua cookies aman, dan ada beberapa flag penting yang harus digunakan (se
 13. Membuat migrasi baru
 14. Membuat setingan untuk environtment production
 
+# Tugas 5
 
 ### Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
 1. Inline Styles
@@ -211,6 +212,8 @@ Kegunaan:
 3. Membuat directory static dan global.css
 4. Menambah link css di base.html
 5. Mengimplementasikan Edit dan Delete
+
+# Tugas 6
 
 ### Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
 JavaScript memungkinkan untuk menambahkan interaktivitas ke halaman web. Pengguna dapat berinteraksi dengan elemen-elemen seperti tombol, form, menu, atau konten yang berubah dinamis, tanpa perlu memuat ulang halaman.
